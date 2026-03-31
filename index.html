@@ -36,7 +36,14 @@
       <h2>Contact</h2>
       <p>Email: afarooq@my.okcu.edu</p>
     </section>
+
+    <section id="visitors">
+      <h2>Recent Visitors</h2>
+      <ul id="visitor-list"></ul>
+    </section>
+
   </div>
+
 <script>
   fetch('/.netlify/functions/get-visitors')
     .then(response => response.json())
@@ -45,7 +52,7 @@
 
       visitors.forEach(v => {
         const item = document.createElement('li');
-        item.textContent = 'Visitor ID: ' + v.id + ' - ' + v.created_at;
+        item.textContent = v.name + ' - ' + v.visited_at;
         list.appendChild(item);
       });
 
